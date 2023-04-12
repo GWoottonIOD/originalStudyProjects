@@ -1,0 +1,33 @@
+body {
+    background-color: aqua; 
+}
+
+h1 {
+    color: red;
+    text-align: center;
+}
+
+.D6 {
+    background-color: black;
+    color: red;
+    position: absolute;
+    top: 250px;
+    left: 200px;
+    height: 100px;
+    width: 200px;
+    font-size: 50px;
+}
+.D10 {
+    background-color: azure;
+    color: blue;
+    position: absolute;
+    top: 250px;
+    left: 500px;
+    height: 100px;
+    width: 200px;
+    font-size: 50px;
+}
+
+p {
+    color: black
+}
