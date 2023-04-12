@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+<template id="temp">
+    <div class="col-lg-3 col-md-6 col-sm-12"> <!-- 12/4=3accross md - medium devices -->
+        <div class="card">
+            <img src="https://www.nasa.gov/sites/default/files/thumbnails/image/edu_ring_a-round_the_saturn.jpg" class="img-fluid" alt="Saturn">
+            <div class="card-body">
+            <h5 class="card-title">Saturn</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+    </div>
+</div>
+</template>
+
+<script>
+    let news=[
+        { id: 1, title: 'News1', content:"bla"},
+        { id: 2, title: 'News2', content:"ble"},
+        { id: 3, title: 'News3', content:"blu"}
+    ];
+
+
+    
+    function newsCards() {
+        let temp = document.getElementById('temp'); //template is stored in temp
+         document.getElementById('here').innerText= "";
+        for (let i of news) { //cycles through each item in the next news card
+            clon = temp.content.cloneNode(true);    // clones the template
+            clon.querySelector('.card-title').innerText=i.title;  //inserts title from object array into 'card-title'
+            clon.querySelector('.card-text').innerText=i.content; // insers content from object array into 'card-text'
+            document.getElementById('here').appendChild(clon); // implements the changes
+        }
+    }
+    function addTo() {
+        let x = document.getElementById('chooseTitle').value; //gets the inputted title
+        let y = document.getElementById('wYStory').value;    //gets the inputted story
+        let news1={id: news.length+1, title: x, content: y};
+        news.push(news1); 
+    }
+
+    setInterval(newsCards, 5000)
+</script>
+    </head>
+        <body>
+            <button onclick="newsCards()">Show hidden news</button> -->
+           <form action="" id="formt=Title">
+            <label for="">Choose a title:</label><br>
+            <input type="text" id="chooseTitle"><br>
+            <label for="">Whats your story?</label><br>
+            <input type="text" id="wYStory"><br>
+           </form>
+           <button onclick="addTo()">Add story</button><br>
+            <div class="row" id="here"></div>
+        </body>
+    </html>
