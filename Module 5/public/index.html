@@ -1,0 +1,81 @@
+<html lang="en">
+<head>
+<title>Calculator Example</title>
+</head>
+<body>
+<div>Result of addition:
+    <span id="resultAdd"></span>
+</div>
+<div>Result of subtracting:
+    <span id="resultSub"></span>
+</div>
+<div>Result of multiplication:
+    <span id="resultMul"></span>
+</div>
+<div>Result of division:
+    <span id="resultDiv"></span>
+</div>
+<div>
+  <!--  <form action=""><br> -->
+        <label for="">Number 1</label>
+        <input type="number" id="numberOne"><br>
+        <label for="">Number 2</label>
+        <input type="number" id="numberTwo"><br>
+        <button onclick="add()">Add</button>
+        <button onclick="subtract()">Subtract</button>
+        <button onclick="multiply()">Multiply</button>
+        <button onclick="divide()">Divide</button>
+    <!--</form>-->
+</div>
+</body>
+<script>
+
+function add () {
+    let num1=document.getElementById('numberOne').value; //queries ?  EJS.co pug
+    let num2=document.getElementById('numberTwo').value;
+    fetch(`/calculatorRoute/add?num1=${num1}&num2=${num2}`) //the file location of routing js file route seperation github expressjs
+    .then(response => response.json())
+    .then(data => {
+    console.log(data)
+    document.getElementById("resultAdd").innerHTML =
+
+    data.result;
+})}
+
+// num1=2
+// num2=5
+
+function subtract (){
+    let num1=document.getElementById('numberOne').value; //queries ?  EJS.co pug
+    let num2=document.getElementById('numberTwo').value;
+    fetch(`/calculatorRoute/subtract?num1=${num1}&num2=${num2}`) //the file location of routing js file
+    .then(response => response.json())
+    .then(data => {
+    document.getElementById("resultSub").innerHTML =
+
+    data.result;
+})}
+
+function multiply () {
+    let num1=document.getElementById('numberOne').value; //queries ?  EJS.co pug
+    let num2=document.getElementById('numberTwo').value;
+    fetch(`/calculatorRoute/multiply?num1=${num1}&num2=${num2}`) //the file location of routing js file
+    .then(response => response.json())
+    .then(data => {
+    document.getElementById("resultMul").innerHTML =
+
+    data.result;
+})}
+
+function divide() {
+    let num1=document.getElementById('numberOne').value; //queries ?  EJS.co pug
+    let num2=document.getElementById('numberTwo').value;
+    fetch(`/calculatorRoute/divide?num1=${num1}&num2=${num2}`) //the file location of routing js file
+    .then(response => response.json())
+    .then(data => {
+    document.getElementById("resultDiv").innerHTML =
+
+    data.result;
+})}
+</script>
+</html>
