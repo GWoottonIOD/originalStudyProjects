@@ -1,0 +1,153 @@
+const db = require("../models");
+const blogComment = db.blogComment;
+
+exports.create = (req, res) => {
+    // Validate request
+    if (!req.body.title) {
+      res.status(400).send({ message: "Content can not be empty!" });
+      return;
+    }
+  
+    // Create a blog user
+    const newBlogComment = new blogComment({
+      title: req.body.title,
+      description: req.body.description,
+      image: req.body.image ? req.body.image : false
+    });
+  
+    // Save blog in the database
+    console.log(blogComment)
+    newBlogComment
+      .save(blogComment)
+      .then(data => {
+        res.send(data);
+      })
+      .catch(err => {
+        res.status(500).send({
+          message:
+            err.message || "Some error occurred while creating the Tutorial."
+        });
+      });
+  };
+
+// Retrieve all Tutorials from the database.
+exports.findAll = (req, res) => {
+  const title = req.query.title;
+  console.log('test')
+  var condition = title ? { title: { $regex: new RegExp(title), $options: "i" } } : {};
+
+  console.log(condition)
+  blogComment.find(condition)
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving tutorials."
+      });
+    });
+};
+
+//retrieve all tutorials that were published.
+exports.findAllPublished = (req, res) => {
+    const title = req.query.title;
+  var condition = title ? { $and: [ { $regex: new RegExp(title), $options: "i" }, {published: true } ] } : {published: true};
+
+  Tutorial.find(condition)
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving published tutorials."
+      });
+    });
+}
+
+exports.findOne = (req, res) => {
+    console.log(req)
+    const id = req.params.id;
+let condition = {id: id}
+
+Tutorial.find(condition)
+    .then(data => {
+    res.send(data);
+    })
+    .catch(err => {
+    res.status(500).send({
+        message:
+        err.message || "Error occurred to find by ID"
+    });
+    });
+};
+
+// Update a Tutorial by the id in the request
+exports.update = (req, res) => {
+  if (!req.body) {
+    return res.status(400).send({
+      message: "Data to update can not be empty!"
+    });
+  }
+
+  const id = req.params.id;
+
+  Tutorial.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
+    .then(data => {
+      if (!data) {
+        res.status(404).send({
+          message: `Cannot update Tutorial with id=${id}. Maybe Tutorial was not found!`
+        });
+      } else res.send({ message: "Tutorial was updated successfully." });
+    })
+    .catch(err => {
+      res.status(500).send({
+        message: "Error updating Tutorial with id=" + id
+      });
+    });
+};
+
+exports.delete = (req, res) => {
+    const id = req.params.id;
+  
+    Tutorial.findByIdAndRemove(id, { useFindAndModify: false })
+      .then(data => {
+        if (!data) {
+          res.status(404).send({
+            message: `Cannot delete Tutorial with id=${id}. Maybe Tutorial was not found!`
+          });
+        } else {
+          res.send({
+            message: "Tutorial was deleted successfully!"
+          });
+        }
+      })
+      .catch(err => {
+        res.status(500).send({
+          message: "Could not delete Tutorial with id=" + id
+        });
+      });
+  };
+
+  exports.deleteAll = (req, res) => {
+    const id = req.params.id;
+  
+    Tutorial.remove(id, { useFindAndModify: false })
+      .then(data => {
+        if (!data) {
+          res.status(404).send({
+            message: `Cannot delete Tutorial with id=${id}. Maybe Tutorial was not found!`
+          });
+        } else {
+          res.send({
+            message: "Tutorial was deleted successfully!"
+          });
+        }
+      })
+      .catch(err => {
+        res.status(500).send({
+          message: "Could not delete Tutorial with id=" + id
+        });
+      });
+  };
