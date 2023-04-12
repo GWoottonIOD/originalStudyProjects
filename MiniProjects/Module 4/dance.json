@@ -1,0 +1,46 @@
+{
+  "danceVideos": [
+    {
+      "id": 1,
+      "source": "dance1.mp4",
+      "title": "pot stir",
+      "description": "video description",
+      "skill": "beginner"
+    },
+    {
+      "id": 2,
+      "source": "dance2.mp4",
+      "title": "First move",
+      "description": "video descri",
+      "skill": "intermediate"
+    },
+    {
+      "id": 3,
+      "source": "dance3.mp4",
+      "title": "Yo-yo",
+      "description": "vid desc",
+      "skill": "beginner"
+    },
+    {
+      "id": 4,
+      "source": "dance4.mp4",
+      "title": "Step accross",
+      "description": "vid descr",
+      "skill": "intermediate"
+    },
+    {
+      "source": "dance7.mp4",
+      "title": "Hello",
+      "description": "Something",
+      "skill": "advanced",
+      "id": 7
+    },
+    {
+      "source": "dance7.mp4",
+      "title": "Hello",
+      "description": "Something",
+      "skill": "beginner",
+      "id": 8
+    }
+  ]
+}

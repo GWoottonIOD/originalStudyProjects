@@ -1,0 +1,27 @@
+{
+  "dependencies": {
+    "axios": "^0.27.2",
+    "express": "^4.18.1",
+    "node-fetch": "^3.2.10",
+    "swagger_petstore": "^1.0.0",
+    "swagger-ui-express": "^4.5.0"
+  },
+  "name": "dance",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GSconer/Module-5-Mini-Project.git"
+  },
+  "bugs": {
+    "url": "https://github.com/GSconer/Module-5-Mini-Project/issues"
+  },
+  "homepage": "https://github.com/GSconer/Module-5-Mini-Project#readme",
+  "description": ""
+}

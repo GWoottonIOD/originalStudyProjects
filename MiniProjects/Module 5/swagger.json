@@ -1,0 +1,50 @@
+{
+    "swagger": "2.0",
+    "info": {
+    "version": "1.0.0",
+    "title": "My User Project CRUD",
+    "description": "My User Project Application API",
+    "license": {
+    "name": "MIT",
+    "url": "https://opensource.org/licenses/MIT"
+    }
+    },
+    "host": "localhost:4000",
+    "basePath": "/",
+    "tags": [
+    {
+    "name": "Calculator",
+    "description": "API for Calculus in the system"
+    }
+    ],
+    "paths": {
+        "/danceRoute/getVideos": {
+            "get": {
+                "tags": [
+                    "Receives the videos from the JSON server"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "JSON containing videos and descriptors"
+                    }
+                }
+            }
+        },
+        "/danceRoute/addVideo": {
+            "post": {
+                "tags": [
+                    "Adds a new video to the JSON server"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "JSON containing videos and descriptors"
+                    }
+                }
+            }
+        }
+    },        
+    "schemes": ["http"],
+    "consumes": ["application/json"],
+    "produces": ["application/json"]
+    
+}

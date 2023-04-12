@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+        <title>Learn Ceroc</title>
+        <template id="temp">
+            <div class="col-lg-3 col-md-6 col-sm-12"> <!-- 12/4=3accross md - medium devices -->
+                <div class="card">
+                    <video width="310" height="240" controls>
+                        <source src="movie.mp4" type="video/mp4">
+                    </video>
+                    <div class="card-body">
+                    <h5 class="card-title">Saturn</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>
+        </div>
+        </template>
+        <style>
+
+            h1,h2 {
+                text-align: center;
+            }
+
+            nav {
+                text-align: center;
+                background-color: black;
+                color: orange;
+            }
+
+            body {
+                background-image: linear-gradient(orange, black);
+                height: 100%;
+                margin: 0;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+            }
+
+            #forMe{
+                text-align: right;
+            }
+
+            /* unvisited link */
+            a:link {
+            color: orange;
+            }
+
+            /* visited link */
+            a:visited {
+            color: orange;
+            }
+
+            /* mouse over link */
+            a:hover {
+            color: orange;
+            }
+
+            /* selected link */
+            a:active {
+            color: orange;
+            }
+        </style>
+        <script>
+            function fetchNews() {
+                fetch('http://localhost:3000/danceVideos')
+                .then((response) => response.json())
+                .then((json) => {console.log(json); newsCards(json)}); //this works because the function newscars is not defined by let or const
+        } //this works because the function newscars is not defined by let or const
+    
+        function newsCards(json) {
+        let temp = document.getElementById('temp'); //template is stored in temp
+         document.getElementById('here').innerText= "";
+         let inter = json.filter(vid=>vid.skill== "intermediate");
+        for (let i of inter) { //cycles through each item in the next news card
+            clon = temp.content.cloneNode(true);    // clones the template
+            //if (i.skill == intermediate){ //filter the json file for intermediate moves only
+            let danceVid = clon.querySelector('video source');
+            danceVid.src = i.source;
+            clon.querySelector('.card-title').innerText=i.title;  //inserts title from object array into 'card-title'
+            clon.querySelector('.card-text').innerText=i.description; // insers content from object array into 'card-text'
+            document.getElementById('here').appendChild(clon); // implements the changes
+            // let key = i.skill;
+            // let value = "intermediate";
+            // let danceVideos = i;
+            // let result = danceVideos.filter(d=>d[skill]=="intermediate");
+            //let int = Array.filter(skills == intermediate)
+            //let int = Object.values(skills).find(danceVideos) => {return ""}
+            // $.each(dance, function (i, dance){
+            //     if (dance.skill == "intermediate");
+            // })
+            // let int = i.filter(function (value){
+            //    return value.skill =="intermediate";
+            // })
+            // let int = i.filter(moves => moves.skill == "intermediate"); //filter the json file for intermediate moves only
+            // int;
+        } //else{alert('alert')}
+    }
+    
+    async function addTo() {
+        console.log('startedaddTo') // handy console.log 
+        let z = document.getElementById('dropDownFiles').value //selects the video to be added
+        let w = document.getElementById('dropDownSkill').value // selects the skill of the video
+        if (w != 'intermediate') {
+            alert('error');
+            throw new Error('ERROR')
+        }
+        else {
+            console.log('success')
+        }
+        // z = 'https://www.youtube.com/embed/' + z;
+        let x = document.getElementById('videoTitle').value; //gets the inputted dance title
+        let y = document.getElementById('videoDescription').value;    //gets the inputted description
+        //  let formData = new FormData();
+        // // let fileField = document.querySelector('input[type="file"]');
+        // formData.append('title', x);
+        // formData.append('description', y);
+        // formData.append('skill', 'beginner');
+        // formData.append('source', z);
+        let beginn1={source: z,title: x, description: y, skill: w};
+        //console.log([...formData.entries()]);
+        await postData('http://localhost:3000/danceVideos', beginn1)
+        .then((data) => {
+            console.log(data); // JSON data parsed by `data.json()` call
+        }).catch (
+            (e) => console.log(e)
+            );  
+        //beginn.push(beginn1); 
+    }
+
+    setInterval(fetchNews, 60000)
+    fetchNews()
+
+        // Example POST method implementation:
+    async function postData(url = '', data = {}) {
+    // Default options are marked with *
+    const response = await fetch(url, {
+        method: 'POST', // *GET, POST, PUT, DELETE, etc.
+        headers: {
+          "Content-type": "application/json; charset=UTF-8"
+        },
+        body: JSON.stringify(data) // body data type must match "Content-Type" header
+    });
+    return response.json(); // parses JSON response into native JavaScript objects
+    }
+
+        </script>
+    </head>
+    <body>
+        <nav>
+            <ul>
+            <a class="navBar" href="intro.html">Introduction</a>
+            <a class="navBar" href="beginner.html">Beginner</a>
+            <a class="navBar" href="intermediate.html">Intermediate</a>
+            <a class="navBar" href="advanced.html">Advanced</a>
+        </ul>
+        </nav>
+
+        <h1>Learn Ceroc</h1>
+
+        <h2>Intermediate</h2><br>
+        <div class="row" id="here"></div><br>
+
+        <form action="" id="formt=Title"> <!--boostrap done, int & adv fetch dropDown & animation-->
+            <div class="form-group">
+            <label class="formText" for="">Video file name:</label><br>
+            <select class="form-control" id="dropDownFiles" type="select" id="videoLink">
+                <option value="dance5.mp4">Dance 5</option>
+                <option value="dance6.mp4">Dance 6</option>
+                <option value="dance7.mp4">Dance 7</option>
+                <option value="dance8.mp4">Dance 8</option>
+                </select></div>
+                <div class="form-group">
+            <br><label class="formText" for="">Choose a title:</label><br>
+            <input class="form-control" type="text" id="videoTitle"><br></div>
+            <div class="form-group">
+            <label class="formText" for="">Video description:</label><br>
+            <input class="form-control" type="text" id="videoDescription"><br>
+                </div>
+                <div class="form-group">
+                    <select class="form-control" name="" id="dropDownSkill">
+                        <option value="beginner">Beginner</option>
+                        <option value="intermediate">Intermediate</option>
+                        <option value="advanced">Advanced</option>
+                    </select>
+                </div><br>
+                <div class="form-group">
+            <button class="form-control" onclick="addTo()">Add a dance</button></div>
+        
+            </form>
+    </body>
+</html>

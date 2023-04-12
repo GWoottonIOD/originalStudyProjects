@@ -1,0 +1,33 @@
+const { query } = require("express");
+const api_helper = require("../MiniProjects/Module 5/request/helperAPI");
+
+async function fetchVideos (req, res) { //req from the http, res is the http response
+    let skillLevel = req.query.skillLevel;
+    let vids = await api_helper.make_api_call('http://localhost:3000/danceVideos')
+    // let danceVids = [];
+    // for (skill of vids) {
+    //     if (skill==skillLevel) {
+    //         danceVids.push();
+    //     }
+    //     return danceVids;
+    // }
+    res.json(vids) // publicise the json file
+    }
+
+    async function addVideo (req, res) { //req from the http request, res is the http response
+        let video = req.body //this works because of the app.use(express.json()); line in index.js to tell express to setup json posts in http requests
+        console.log(video);
+        let vids = await api_helper.make_api_post('http://localhost:3000/danceVideos', video)
+        // let danceVids = [];
+        // for (skill of vids) {
+        //     if (skill==skillLevel) {
+        //         danceVids.push();
+        //     }
+        //     return danceVids;
+        // }
+        res.json(vids) // publicise the json file
+        }
+
+module.exports = {
+    fetchVideos, addVideo
+} // exports router information to danceRouter
