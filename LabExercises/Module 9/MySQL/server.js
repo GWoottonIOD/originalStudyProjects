@@ -21,7 +21,7 @@ app.get("/", (req, res) => {
   res.json({ message: "Welcome to Mysql Nodejs Connection application." });
 });
 
-require("./app/routes/tutorial.routes.js")(app);
+// require("./app/routes/tutorial.routes.js")(app);
 require("./blog/routes/blog_users.routes.js")(app);
 require("./blog/routes/blog_posts.routes.js")(app);
 require("./blog/routes/blog_comments.routes.js")(app);
