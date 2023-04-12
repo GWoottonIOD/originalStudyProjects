@@ -1,0 +1,89 @@
+body {
+    background-color: white;
+}
+
+h1 {
+    text-align: center;
+    color: aqua;
+}
+ p {
+    color: black;
+ }
+
+ .iframe {
+    margin-right: 200px;
+ }
+
+ .table1 {
+    color: black;
+    border: 1px solid;
+    margin-top: 50px;
+    margin-left: 200px;
+ }
+
+ .headrow {
+    background-color: blueviolet;
+ }
+
+ .firstrow {
+    background-color: green;
+ }
+
+ .secondrow {
+    background-color: grey;
+ }
+
+ .thoughts {
+    margin-left: 350px;
+ }
+
+ .form1 {
+    margin-top: 20px;
+    margin-left: 350px;
+ }
+
+ .orange {
+    width: 100px;
+    height: 30px;
+    background-color: orange;
+    border: 1px solid;
+}
+
+ .grey {
+    width: 100px;
+    height: 30px;
+    background-color: grey;
+    border: 1px solid;
+ }
+
+ .green {
+    width: 100px;
+    height: 30px;
+    background-color: green;
+    border: 1px solid;
+ }
+
+ .white {
+    width: 100px;
+    height: 30px;
+    background-color: white;
+    border: 1px solid;
+ }
+
+ .gridcontainer {
+    display: grid;
+ }
+
+ .item1 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+ }
+
+.supernova {
+    background-image: url(supernova.jpg);
+    width: 300px;
+    height: 300px;
+    background-size: 100%;
+    position: fixed;
+    right: 0;
+}
