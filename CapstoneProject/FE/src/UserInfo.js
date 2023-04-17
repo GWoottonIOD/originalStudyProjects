@@ -85,7 +85,7 @@ export const PlantUserInfo = () => {
             <div><Button variant="contained" onClick={hiddenUserAdmin}>{isUserAdminHidden? 'Show admin status':'Hide admin status'}</Button></div> 
             {!isUserAdminHidden ? UserAdmin : null}
             </>
-            : <p> Plant: {userid} not found</p>
+            : <p> User: {userid} not found</p>
             }
         </div>              
     )
