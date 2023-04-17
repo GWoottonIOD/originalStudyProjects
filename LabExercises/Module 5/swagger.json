@@ -1,0 +1,126 @@
+{
+    "swagger": "2.0",
+    "info": {
+    "version": "1.0.0",
+    "title": "My User Project CRUD",
+    "description": "My User Project Application API",
+    "license": {
+    "name": "MIT",
+    "url": "https://opensource.org/licenses/MIT"
+      }
+    },
+    "host": "localhost:3000",
+    "basePath": "/",
+    "tags": [
+     {
+         "name": "Calculator",
+         "description": "API for Calculus in the system"
+     }
+    ],
+    "paths": {
+        "/calculatorRoute/add": {
+        "get": {
+        "tags": [
+        "Addition Service"
+        ],
+        "summary": "Add 2 numbers",
+        "parameters": [
+        {
+        "name": "num1",
+        "in": "query",
+        "description": "the First Number"
+        },
+        {
+        "name": "num2",
+        "in": "query",
+        "description": "the Second number"
+        }
+        ],
+        "responses": {
+        "200": {
+        "description": "This service allows you to add two numbers together"
+        }
+        }
+        }
+        },
+    "/calculatorRoute/subtract": {
+        "get": {
+        "tags": [
+        "Subtraction Service"
+        ],
+        "summary": "Subtract 2 numbers",
+        "parameters": [
+        {
+        "name": "num1",
+        "in": "query",
+        "description": "the First Number"
+        },
+        {
+        "name": "num2",
+        "in": "query",
+        "description": "the Second number"
+        }
+        ],
+        "responses": {
+        "200": {
+        "description": "This service allows you to subtract one number from another"
+        }
+        }
+        }
+        },
+    "/calculatorRoute/multiply": {
+        "get": {
+        "tags": [
+        "Multiplication Service"
+        ],
+        "summary": "Multiply 2 numbers",
+        "parameters": [
+        {
+        "name": "num1",
+        "in": "query",
+        "description": "the First Number"
+        },
+        {
+        "name": "num2",
+        "in": "query",
+        "description": "the Second number"
+        }
+        ],
+        "responses": {
+        "200": {
+        "description": "This service allows you to multiply one number with another"
+        }
+        }
+        }
+        },
+    "/calculatorRoute/divide": {
+        "get": {
+        "tags": [
+        "Dividing Service"
+        ],
+        "summary": "Divide 2 numbers",
+        "parameters": [
+        {
+        "name": "num1",
+        "in": "query",
+        "description": "the First Number"
+        },
+        {
+        "name": "num2",
+        "in": "query",
+        "description": "the Second number"
+        }
+        ],
+        "responses": {
+        "200": {
+        "description": "This service allows you to divide one number with another"
+        }
+        }
+        }
+        }
+        },
+    
+    "schemes": ["http"],
+    "consumes": ["application/json"],
+    "produces": ["application/json"]
+}
