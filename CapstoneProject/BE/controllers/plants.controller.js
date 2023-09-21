@@ -51,7 +51,6 @@ exports.findAll = (req, res) => {
   const cName = req.query.PlantCName;
   const limit = req.query.limit;
   const offset = req.query.offset;
-
   Plants.getAll(cName, limit, offset, (err, data) => {
     if (err)
       res.status(500).send({

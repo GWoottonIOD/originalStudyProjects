@@ -8,6 +8,7 @@ CREATE TABLE capstone_plants.plants (
   `PlantMinerals` varchar(255),
   `PlantPharmaProps` varchar(255),
   `PlantDesc` varchar(255),
+  `PlantLike` boolean,
   `id` int NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`) 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

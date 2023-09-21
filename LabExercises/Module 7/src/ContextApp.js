@@ -29,17 +29,17 @@ const initialState=false
 
     const sad =(
         <div><img className='emoji' alt="sad" src="https://media.istockphoto.com/vectors/depressed-emoticon-vector-id480144800?k=20&m=480144800&s=612x612&w=0&h=UBol4m9eJ03gm-G34KsRHeLg7UJePn3btS1yNkCRI2Q="></img>
-      {/* <button className='buttn' value={sad} onClick={() => moodContext.moodDispatch(!mood)}>
+      <button className='buttn' value={sad} onClick={() => moodContext.moodDispatch(!mood)}>
         happy
-    </button>*/}
+    </button>
       </div> 
     )
 
     const happy =(
         <div><img className='emoji' alt="happy" src="https://mpng.subpng.com/20190617/ysi/kisspng-smiley-emoticon-v-sign-emoji-vector-graphics-joykvest-5d075a6b874956.2618308915607629875541.jpg"></img>
-      {/* <button className='buttn' value={happy} onClick={()=> moodContext.moodDispatch(!mood)}>
+      <button className='buttn' value={happy} onClick={()=> moodContext.moodDispatch(!mood)}>
         Sad
-      </button> */}
+      </button>
       </div>
     )
 
